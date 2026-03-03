@@ -21,12 +21,12 @@ const HeroSection = () => {
           Trusted by 50,000+ learners worldwide
         </div>
 
-        <h1 className="mx-auto mt-8 max-w-4xl text-5xl font-bold leading-tight tracking-tight text-white md:text-7xl">
+        <h1 className="mx-auto mt-8 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
           Learn Without Limits
-          <span className="block text-cyan-400">Learnify</span>
+          <span className="block text-cyan-400">WEFI-institute</span>
         </h1>
 
-        <p className="mx-auto mt-7 max-w-4xl text-lg leading-relaxed text-indigo-100/85 md:text-2xl">
+        <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-indigo-100/85 lg:text-xl">
           Master new skills with world-class instructors. Access thousands of
           courses in technology, business, design, and more.
         </p>
@@ -46,7 +46,7 @@ const HeroSection = () => {
           </a>
         </div>
 
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-8 text-base text-indigo-100 md:text-lg">
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-8 text-sm text-indigo-100">
           <span className="flex items-center gap-2">
             <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
             4.8 average rating
@@ -61,11 +61,14 @@ const HeroSection = () => {
           </span>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 gap-8 border-t border-white/10 pt-12 md:grid-cols-4">
+        <div className="mt-14 grid grid-cols-2 gap-4 pt-8 md:grid-cols-4">
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-5xl font-bold text-white md:text-6xl">{stat.value}</p>
-              <p className="mt-2 text-base text-indigo-100/80 md:text-lg">{stat.label}</p>
+            <div
+              key={stat.label}
+              className="flex min-h-32 flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center"
+            >
+              <p className="text-4xl font-bold text-white lg:text-5xl">{stat.value}</p>
+              <p className="mt-2 text-base text-indigo-100/80">{stat.label}</p>
             </div>
           ))}
         </div>

@@ -45,16 +45,19 @@ const instructors = [
 
 const InstructorsSection = () => {
   return (
-    <section id="instructors" className="bg-[#f8f9fc] py-20 md:py-28">
+    <section
+      id="instructors"
+      className="scroll-mt-[5rem] bg-[#f8f9fc] py-20 md:py-28 dark:bg-[#02081c]"
+    >
       <div className="container">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">
             Expert Instructors
           </p>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-950 dark:text-white lg:text-4xl">
             Learn From the Best
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-slate-600 md:text-xl">
+          <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-400">
             Our instructors are industry professionals from top companies,
             passionate about sharing their knowledge.
           </p>
@@ -64,9 +67,9 @@ const InstructorsSection = () => {
           {instructors.map((instructor) => (
             <article
               key={instructor.name}
-              className="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-lg"
+              className="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-lg dark:border-white/10 dark:bg-[#0d1a35]"
             >
-              <div className="mx-auto h-32 w-32 overflow-hidden rounded-full border-4 border-slate-200">
+              <div className="mx-auto h-32 w-32 overflow-hidden rounded-full border-4 border-slate-200 dark:border-white/10">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={instructor.image}
@@ -75,37 +78,37 @@ const InstructorsSection = () => {
                 />
               </div>
 
-              <h3 className="mt-6 text-2xl font-semibold text-slate-950">
+              <h3 className="mt-6 text-lg font-semibold text-slate-950 dark:text-white">
                 {instructor.name}
               </h3>
               <p
-                className={`mt-2 text-lg ${
+                className={`mt-2 text-sm ${
                   instructor.name === "Emily Rodriguez"
                     ? "text-primary"
-                    : "text-slate-600"
+                    : "text-slate-600 dark:text-slate-400"
                 }`}
               >
                 {instructor.role}
               </p>
 
-              <div className="mt-6 flex items-center justify-center gap-2 text-base">
-                <Star className="h-6 w-6 fill-yellow-400 text-yellow-400" />
-                <span className="font-semibold text-slate-950">{instructor.rating}</span>
-                <span className="text-slate-500">{instructor.reviews}</span>
+              <div className="mt-6 flex items-center justify-center gap-2 text-sm">
+                <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                <span className="font-semibold text-slate-950 dark:text-white">{instructor.rating}</span>
+                <span className="text-slate-500 dark:text-slate-400">{instructor.reviews}</span>
               </div>
 
-              <div className="mt-6 flex justify-center gap-8 border-t border-slate-200 pt-6">
+              <div className="mt-6 flex justify-center gap-8 border-t border-slate-200 pt-6 dark:border-white/10">
                 <div>
-                  <p className="text-3xl font-bold text-slate-950">
+                  <p className="text-base font-semibold text-slate-950 dark:text-white">
                     {instructor.students}
                   </p>
-                  <p className="text-base text-slate-600">Students</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">Students</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-slate-950">
+                  <p className="text-base font-semibold text-slate-950 dark:text-white">
                     {instructor.courses}
                   </p>
-                  <p className="text-base text-slate-600">Courses</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">Courses</p>
                 </div>
               </div>
             </article>
@@ -115,7 +118,7 @@ const InstructorsSection = () => {
         <div className="mt-12 text-center">
           <a
             href="#"
-            className="inline-flex items-center gap-2 text-xl font-medium text-primary transition hover:underline"
+            className="inline-flex items-center gap-2 text-base font-medium text-primary transition hover:underline"
           >
             View All Instructors <ArrowRight className="h-5 w-5" />
           </a>

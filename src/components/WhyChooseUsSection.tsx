@@ -28,23 +28,23 @@ const highlights = [
 ];
 
 const students = [
-  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80",
-  "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=120&q=80",
-  "https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=120&q=80",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80",
 ];
 
 const WhyChooseUsSection = () => {
   return (
-    <section className="bg-[#f8f9fc] py-20 md:py-28">
+    <section className="border-t border-slate-200/70 bg-white py-20 md:py-28 dark:border-white/10 dark:bg-[#061226]">
       <div className="container grid items-center gap-12 lg:grid-cols-2">
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">
             Why Choose Us
           </p>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-950 dark:text-white lg:text-4xl">
             The Best Platform to Learn New Skills
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-slate-600 md:text-xl">
+          <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
             We provide everything you need to succeed in your learning journey.
             Our platform is designed to make learning effective and enjoyable.
           </p>
@@ -54,13 +54,13 @@ const WhyChooseUsSection = () => {
               const Icon = item.icon;
               return (
                 <article key={item.title}>
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-100 text-primary">
+                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-100 text-primary dark:bg-indigo-500/15">
                     <Icon className="h-8 w-8" />
                   </div>
-                  <h3 className="mt-5 text-2xl font-semibold text-slate-950">
+                  <h3 className="mt-5 text-base font-semibold text-slate-950 dark:text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-lg leading-relaxed text-slate-600">
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                     {item.description}
                   </p>
                 </article>
@@ -87,7 +87,7 @@ const WhyChooseUsSection = () => {
             <Play className="h-10 w-10 fill-current" />
           </button>
 
-          <div className="absolute -bottom-6 left-6 flex items-center gap-4 rounded-3xl bg-white px-6 py-4 shadow-xl">
+          <div className="absolute -bottom-6 left-6 flex items-center gap-4 rounded-3xl bg-white px-6 py-4 shadow-xl dark:border dark:border-white/10 dark:bg-[#0d1a35]">
             <div className="flex -space-x-3">
               {students.map((avatar, index) => (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -100,8 +100,8 @@ const WhyChooseUsSection = () => {
               ))}
             </div>
             <div>
-              <p className="text-3xl font-bold text-slate-950">50K+</p>
-              <p className="text-lg text-slate-600">Happy Students</p>
+              <p className="text-base font-semibold text-slate-950 dark:text-white">50K+</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">Happy Students</p>
             </div>
             <ShieldCheck className="hidden h-7 w-7 text-emerald-500 sm:block" />
           </div>

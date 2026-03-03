@@ -44,7 +44,7 @@ const BrandLogo = ({ className, textClassName }: BrandLogoProps) => {
         </svg>
       </div>
       <span className={cn("text-xl font-bold", textClassName)}>
-        Learnify
+        WEFI-institute
       </span>
     </div>
   );

@@ -71,16 +71,19 @@ const categories = [
 
 const CategoriesSection = () => {
   return (
-    <section id="categories" className="bg-[#f8f9fc] py-20 md:py-28">
+    <section
+      id="categories"
+      className="scroll-mt-[5rem] bg-[#f8f9fc] pb-20 pt-12 md:py-28 dark:bg-[#02081c]"
+    >
       <div className="container">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">
             Browse Categories
           </p>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-950 dark:text-white lg:text-4xl">
             Explore Our Top Categories
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-slate-600">
+          <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-400">
             Find the perfect course from our wide selection of categories taught
             by industry experts.
           </p>
@@ -93,10 +96,10 @@ const CategoriesSection = () => {
               <a
                 key={category.title}
                 href="#"
-                className={`rounded-2xl border bg-white p-8 transition-all hover:-translate-y-0.5 hover:shadow-lg ${
+                className={`rounded-2xl border bg-white p-8 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:bg-[#0d1a35] ${
                   category.highlighted
                     ? "border-primary/30 shadow-[0_8px_30px_rgba(79,70,229,0.08)]"
-                    : "border-slate-200"
+                    : "border-slate-200 dark:border-white/10"
                 }`}
               >
                 <div
@@ -105,16 +108,16 @@ const CategoriesSection = () => {
                   <Icon className="h-8 w-8" />
                 </div>
                 <h3
-                  className={`mt-7 text-2xl font-semibold ${
-                    category.highlighted ? "text-primary" : "text-slate-950"
+                  className={`mt-7 text-lg font-semibold ${
+                    category.highlighted ? "text-primary" : "text-slate-950 dark:text-white"
                   }`}
                 >
                   {category.title}
                 </h3>
-                <p className="mt-3 text-lg leading-relaxed text-slate-600">
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                   {category.description}
                 </p>
-                <p className="mt-5 text-xl font-medium text-primary">
+                <p className="mt-5 text-sm font-medium text-primary">
                   {category.courses} -&gt;
                 </p>
               </a>
