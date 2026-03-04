@@ -121,9 +121,9 @@ const Navbar = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[80] bg-black/35 dark:bg-black/60 lg:hidden">
-          <aside className="h-full w-full bg-white dark:bg-[#020617]">
-            <div className="container flex h-20 items-center justify-between border-b border-slate-200 dark:border-white/10">
+        <div className="fixed inset-0 z-[80] h-dvh bg-black/35 dark:bg-black/60 lg:hidden">
+          <aside className="flex h-dvh w-full flex-col bg-white dark:bg-[#020617]">
+            <div className="container flex h-20 shrink-0 items-center justify-between border-b border-slate-200 dark:border-white/10">
               <Link href="/" className="shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
                 <BrandLogo textClassName="text-2xl text-foreground" />
               </Link>
@@ -137,7 +137,7 @@ const Navbar = () => {
               </button>
             </div>
 
-            <div className="container bg-white py-5 dark:bg-[#020617]">
+            <div className="container flex-1 overflow-y-auto bg-white py-5 dark:bg-[#020617]">
               <nav className="flex flex-col gap-2">
                 {navLinks.map((link) => (
                   <Link

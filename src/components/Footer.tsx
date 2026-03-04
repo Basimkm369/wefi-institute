@@ -1,37 +1,37 @@
-import { Apple, Instagram, Linkedin, Play, Twitter } from "lucide-react";
-import BrandLogo from "@/components/BrandLogo";
+import { Apple, Instagram, Linkedin, Play, Twitter } from 'lucide-react';
+import BrandLogo from '@/components/BrandLogo';
 
 const footerLinks = {
   Categories: [
-    "Web Development",
-    "Data Science",
-    "UI/UX Design",
-    "Business",
-    "Digital Marketing",
-    "Mobile Development",
+    'Web Development',
+    'Data Science',
+    'UI/UX Design',
+    'Business',
+    'Digital Marketing',
+    'Mobile Development',
   ],
   Company: [
-    "About Us",
-    "Become an Instructor",
-    "Careers",
-    "Blog",
-    "Press",
-    "Contact",
+    'About Us',
+    'Become an Instructor',
+    'Careers',
+    'Blog',
+    'Press',
+    'Contact',
   ],
   Support: [
-    "Help Center",
-    "FAQ",
-    "Terms of Service",
-    "Privacy Policy",
-    "Accessibility",
+    'Help Center',
+    'FAQ',
+    'Terms of Service',
+    'Privacy Policy',
+    'Accessibility',
   ],
 };
 
 const socialLinks = [
-  { label: "X", icon: Twitter },
-  { label: "LinkedIn", icon: Linkedin },
-  { label: "YouTube", icon: Play },
-  { label: "Instagram", icon: Instagram },
+  { label: 'X', icon: Twitter },
+  { label: 'LinkedIn', icon: Linkedin },
+  { label: 'YouTube', icon: Play },
+  { label: 'Instagram', icon: Instagram },
 ];
 
 const Footer = () => {
@@ -42,8 +42,9 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <BrandLogo textClassName="text-2xl text-slate-950 dark:text-white" />
             <p className="mt-4 max-w-sm text-base leading-relaxed text-slate-600 dark:text-slate-400">
-              Master new skills with world-class instructors. Access thousands
-              of courses in technology, business, design, and more.
+              We believe that education should be accessible to everyone,
+              everywhere. That&apos;s why we&apos;ve built a platform that
+              connects learners.
             </p>
 
             <div className="mt-6 flex items-center gap-4">
@@ -65,11 +66,13 @@ const Footer = () => {
 
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="font-semibold text-slate-950 dark:text-white">{title}</h4>
+              <h4 className="font-semibold text-slate-950 dark:text-white">
+                {title}
+              </h4>
               <ul className="mt-4 space-y-3">
                 {links.map((link) => {
                   const href =
-                    title === "Company" && link === "About Us" ? "/about" : "#";
+                    title === 'Company' && link === 'About Us' ? '/about' : '#';
 
                   return (
                     <li key={link}>
@@ -96,7 +99,9 @@ const Footer = () => {
             </p>
 
             <div className="flex items-center gap-4">
-              <span className="text-sm text-slate-500 dark:text-slate-400">Available on:</span>
+              <span className="text-sm text-slate-500 dark:text-slate-400">
+                Available on:
+              </span>
               <div className="flex gap-2">
                 <a
                   href="#"

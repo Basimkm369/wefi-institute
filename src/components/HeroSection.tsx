@@ -1,10 +1,16 @@
-import { ArrowRight, BadgeCheck, Clock3, ShieldCheck, Star } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  Clock3,
+  ShieldCheck,
+  Star,
+} from 'lucide-react';
 
 const stats = [
-  { value: "50K+", label: "Active Students" },
-  { value: "500+", label: "Expert Instructors" },
-  { value: "2,500+", label: "Quality Courses" },
-  { value: "95%", label: "Success Rate" },
+  { value: '50K+', label: 'Active Students' },
+  { value: '500+', label: 'Expert Instructors' },
+  { value: '2,500+', label: 'Quality Courses' },
+  { value: '95%', label: 'Success Rate' },
 ];
 
 const HeroSection = () => {
@@ -27,8 +33,9 @@ const HeroSection = () => {
         </h1>
 
         <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-indigo-100/85 lg:text-xl">
-          Master new skills with world-class instructors. Access thousands of
-          courses in technology, business, design, and more.
+          We believe that education should be accessible to everyone,
+          everywhere. That&apos;s why we&apos;ve built a platform that connects
+          learners .
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -53,7 +60,7 @@ const HeroSection = () => {
           </span>
           <span className="flex items-center gap-2">
             <ShieldCheck className="h-5 w-5 text-emerald-400" />
-            30-day money-back guarantee
+            Free courses available
           </span>
           <span className="flex items-center gap-2">
             <Clock3 className="h-5 w-5 text-emerald-400" />
@@ -67,7 +74,9 @@ const HeroSection = () => {
               key={stat.label}
               className="flex min-h-32 flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center"
             >
-              <p className="text-4xl font-bold text-white lg:text-5xl">{stat.value}</p>
+              <p className="text-4xl font-bold text-white lg:text-5xl">
+                {stat.value}
+              </p>
               <p className="mt-2 text-base text-indigo-100/80">{stat.label}</p>
             </div>
           ))}

@@ -1,4 +1,4 @@
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check } from 'lucide-react';
 
 const CTASection = () => {
   return (
@@ -14,8 +14,9 @@ const CTASection = () => {
             Ready to Start Learning?
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-indigo-100">
-            Join over 50,000 students already learning on WEFI-institute. Get
-            unlimited access to all courses with our Pro plan.
+            We believe that education should be accessible to everyone,
+            everywhere. That&apos;s why we&apos;ve built a platform that
+            connects learners .
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
