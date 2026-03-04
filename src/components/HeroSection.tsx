@@ -29,7 +29,7 @@ const HeroSection = () => {
 
         <h1 className="mx-auto mt-8 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
           Learn Without Limits
-          <span className="block text-cyan-400">WEFI-institute</span>
+          <span className="block text-cyan-400">WEFI-Institute</span>
         </h1>
 
         <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-indigo-100/85 lg:text-xl">
@@ -44,12 +44,6 @@ const HeroSection = () => {
             className="inline-flex min-w-56 items-center justify-center gap-2 rounded-full bg-white px-10 py-4 text-lg font-semibold text-primary transition hover:bg-white/95"
           >
             Explore Courses <ArrowRight className="h-6 w-6" />
-          </a>
-          <a
-            href="#pricing"
-            className="inline-flex min-w-56 items-center justify-center rounded-full border border-white/30 px-10 py-4 text-lg font-semibold text-white transition hover:bg-white/10"
-          >
-            View Pricing
           </a>
         </div>
 

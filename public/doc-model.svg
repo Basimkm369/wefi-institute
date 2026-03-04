@@ -1,0 +1,10 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="10" width="96" height="108" rx="14" fill="#F5F7FC"/>
+  <path d="M8 24V10H26.5C26.5 19.2 19.2 26.5 10 26.5H8V24Z" fill="#B8C0E9"/>
+  <path d="M8 24V10H90C97.7 10 104 16.3 104 24V49H8V24Z" fill="#6F79C8"/>
+  <text x="67" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#FFFFFF">doc</text>
+  <rect x="28" y="66" width="30" height="6" rx="3" fill="#5B67B4"/>
+  <rect x="28" y="84" width="56" height="6" rx="3" fill="#5B67B4"/>
+  <rect x="64" y="66" width="20" height="6" rx="3" fill="#5B67B4"/>
+  <ellipse cx="94" cy="107" rx="26" ry="11" fill="#E9EDF8"/>
+</svg>

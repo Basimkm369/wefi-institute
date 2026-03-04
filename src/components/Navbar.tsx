@@ -101,12 +101,6 @@ const Navbar = () => {
             <Moon className="h-6 w-6 dark:hidden" />
             <Sun className="hidden h-6 w-6 dark:block" />
           </button>
-          <a
-            href="#"
-            className="rounded-full bg-primary px-6 py-3 text-base font-semibold text-white shadow-[0_10px_24px_rgba(79,70,229,0.35)] transition hover:bg-primary/90"
-          >
-            Get Started
-          </a>
         </div>
 
         <button
@@ -174,12 +168,6 @@ const Navbar = () => {
                   <span className="dark:hidden">Dark Mode</span>
                   <span className="hidden dark:inline">Light Mode</span>
                 </button>
-                <a
-                  href="#"
-                  className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-base font-semibold text-white shadow-[0_10px_24px_rgba(79,70,229,0.35)] transition hover:bg-primary/90"
-                >
-                  Get Started
-                </a>
               </div>
             </div>
           </aside>

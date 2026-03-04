@@ -1,123 +1,129 @@
-import { Apple, Instagram, Linkedin, Play, Twitter } from 'lucide-react';
-import BrandLogo from '@/components/BrandLogo';
+import type { ComponentType } from 'react';
+import { FaFacebookF, FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 
-const footerLinks = {
-  Categories: [
-    'Web Development',
-    'Data Science',
-    'UI/UX Design',
-    'Business',
-    'Digital Marketing',
-    'Mobile Development',
-  ],
-  Company: [
-    'About Us',
-    'Become an Instructor',
-    'Careers',
-    'Blog',
-    'Press',
-    'Contact',
-  ],
-  Support: [
-    'Help Center',
-    'FAQ',
-    'Terms of Service',
-    'Privacy Policy',
-    'Accessibility',
-  ],
+const quickLinks = [
+  { label: 'SSF Kerala', href: 'http://www.ssfkerala.org/' },
+  { label: 'IPF Online', href: 'http://ipfonline.org/' },
+  { label: 'Wisdom Online', href: '#' },
+];
+
+type SocialLink = {
+  label: string;
+  href: string;
+  icon: ComponentType<{ className?: string }>;
+  iconClassName?: string;
 };
 
-const socialLinks = [
-  { label: 'X', icon: Twitter },
-  { label: 'LinkedIn', icon: Linkedin },
-  { label: 'YouTube', icon: Play },
-  { label: 'Instagram', icon: Instagram },
+const socialLinks: SocialLink[] = [
+  {
+    label: 'Telegram',
+    href: 'https://t.me/wisdomwefi',
+    icon: FaTelegramPlane,
+    iconClassName: 'h-4 w-4 text-[#229ED9]',
+  },
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/wisdom.wefi/',
+    icon: FaFacebookF,
+    iconClassName: 'h-4 w-4 text-[#1877F2]',
+  },
+  {
+    label: 'WhatsApp',
+    href: 'https://bit.ly/3ag7pEn',
+    icon: FaWhatsapp,
+    iconClassName: 'h-5 w-5 text-[#25D366]',
+  },
 ];
 
 const Footer = () => {
   return (
-    <footer className="border-t border-slate-200 bg-[#f8f9fc] dark:border-white/10 dark:bg-[#02081c]">
+    <footer className="border-t border-slate-200 bg-white text-slate-600 dark:border-white/10 dark:bg-[#02081c] dark:text-slate-300">
       <div className="container py-12 lg:py-16">
-        <div className="grid gap-8 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <BrandLogo textClassName="text-2xl text-slate-950 dark:text-white" />
-            <p className="mt-4 max-w-sm text-base leading-relaxed text-slate-600 dark:text-slate-400">
-              We believe that education should be accessible to everyone,
-              everywhere. That&apos;s why we&apos;ve built a platform that
-              connects learners.
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:items-start">
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-slate-950 dark:text-white">
+              WEFI - Institute
+            </h3>
+            <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              &copy; Copyright 2026
+              <br />
+              All Rights Reserved.
             </p>
+          </div>
 
-            <div className="mt-6 flex items-center gap-4">
+          <div className="space-y-4">
+            <h4 className="text-base font-semibold text-slate-950 dark:text-white">
+              Quick Links
+            </h4>
+            <ul className="space-y-2 text-sm">
+              {quickLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="transition-colors hover:text-slate-950 dark:hover:text-white"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h4 className="text-base font-semibold text-slate-950 dark:text-white">
+              Contact us
+            </h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="mailto:mail@wisdomonline.in"
+                  className="transition-colors hover:text-slate-950 dark:hover:text-white"
+                >
+                  mail@wisdomonline.in
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+919633687336"
+                  className="transition-colors hover:text-slate-950 dark:hover:text-white"
+                >
+                  +91 9633 687 336
+                </a>
+              </li>
+              <li className="leading-relaxed">
+                Students&apos; Centre, <br />
+                Calicut - 04,
+                <br />
+                Kerala, India
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h4 className="text-base font-semibold text-slate-950 dark:text-white">
+              Follow us
+            </h4>
+            <div className="flex flex-wrap items-center gap-3">
               {socialLinks.map((social) => {
-                const Icon = social.icon;
                 return (
                   <a
                     key={social.label}
-                    href="#"
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 text-slate-600 transition hover:bg-slate-300 dark:bg-white/10 dark:text-slate-300 dark:hover:bg-white/20"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 transition hover:bg-slate-200 dark:bg-white/10 dark:hover:bg-white/20"
                   >
-                    <Icon className="h-5 w-5" />
+                    <span className="inline-flex h-6 w-6 items-center justify-center overflow-hidden rounded-md bg-white dark:bg-slate-200">
+                      <social.icon
+                        className={social.iconClassName ?? 'h-4 w-4 text-slate-700'}
+                      />
+                    </span>
                   </a>
                 );
               })}
-            </div>
-          </div>
-
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="font-semibold text-slate-950 dark:text-white">
-                {title}
-              </h4>
-              <ul className="mt-4 space-y-3">
-                {links.map((link) => {
-                  const href =
-                    title === 'Company' && link === 'About Us' ? '/about' : '#';
-
-                  return (
-                    <li key={link}>
-                      <a
-                        href={href}
-                        className="text-slate-600 transition-colors hover:text-slate-950 dark:text-slate-400 dark:hover:text-white"
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="border-t border-slate-200 dark:border-white/10">
-        <div className="container py-6">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-slate-500 dark:text-slate-400">
-              &copy; 2026 WEFI-institute. All rights reserved.
-            </p>
-
-            <div className="flex items-center gap-4">
-              <span className="text-sm text-slate-500 dark:text-slate-400">
-                Available on:
-              </span>
-              <div className="flex gap-2">
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-1 rounded-lg bg-slate-900 px-3 py-1.5 text-white dark:bg-white/10"
-                >
-                  <Apple className="h-4 w-4" />
-                  <span className="text-xs font-medium">iOS</span>
-                </a>
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-1 rounded-lg bg-slate-900 px-3 py-1.5 text-white dark:bg-white/10"
-                >
-                  <Play className="h-4 w-4 fill-current" />
-                  <span className="text-xs font-medium">Android</span>
-                </a>
-              </div>
             </div>
           </div>
         </div>

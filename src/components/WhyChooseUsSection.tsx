@@ -1,37 +1,36 @@
-import { Award, Clock3, Code2, Play, ShieldCheck, Users } from "lucide-react";
+import { Award, Clock3, Code2, Play, ShieldCheck, Users } from 'lucide-react';
+import avatar1 from '@/assets/9720004.jpg';
+import avatar2 from '@/assets/9720026.jpg';
+import avatar3 from '@/assets/9720027.jpg';
 
 const highlights = [
   {
     icon: Clock3,
-    title: "Learn at Your Pace",
+    title: 'Learn at Your Pace',
     description:
-      "Access courses anytime, anywhere. Learn on your schedule with lifetime access to all purchased courses.",
+      'Access courses anytime, anywhere. Learn on your schedule with lifetime access to all courses.',
   },
   {
     icon: Users,
-    title: "Expert Instructors",
+    title: 'Expert Instructors',
     description:
-      "Learn from industry professionals working at top companies like Google, Meta, and Amazon.",
+      'Learn from industry professionals working at top companies like Google, Meta, and Amazon.',
   },
   {
     icon: Code2,
-    title: "Hands-on Projects",
+    title: 'Hands-on Projects',
     description:
-      "Build real-world projects and add them to your portfolio. Practice what you learn with coding exercises.",
+      'Build real-world projects and add them to your portfolio. Practice what you learn with coding exercises.',
   },
   {
     icon: Award,
-    title: "Certificates",
+    title: 'Certificates',
     description:
-      "Earn verified certificates upon completion. Share your achievements on LinkedIn and your resume.",
+      'Earn verified certificates upon completion. Share your achievements on LinkedIn and your resume.',
   },
 ];
 
-const students = [
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
-  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80",
-];
+const students = [avatar1.src, avatar2.src, avatar3.src];
 
 const WhyChooseUsSection = () => {
   return (
@@ -100,8 +99,12 @@ const WhyChooseUsSection = () => {
               ))}
             </div>
             <div>
-              <p className="text-base font-semibold text-slate-950 dark:text-white">50K+</p>
-              <p className="text-sm text-slate-600 dark:text-slate-400">Happy Students</p>
+              <p className="text-base font-semibold text-slate-950 dark:text-white">
+                50K+
+              </p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Happy Students
+              </p>
             </div>
             <ShieldCheck className="hidden h-7 w-7 text-emerald-500 sm:block" />
           </div>

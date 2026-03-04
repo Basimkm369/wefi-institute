@@ -12,7 +12,7 @@ const AboutMissionSection = () => {
             Empowering learners worldwide
           </h2>
 
-          <p className="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+          <p className="mt-6 text-base leading-relaxed text-slate-600 dark:text-slate-400">
             Wisdom Education Foundation of India (WEFI) is a non-profit
             organization triggered to stream multiple development projects in
             the fields of education and guidance as to further mobilize the

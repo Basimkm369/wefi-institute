@@ -1,32 +1,32 @@
-import { Star } from "lucide-react";
+import { Star } from 'lucide-react';
 
 const testimonials = [
   {
     quote:
-      "WEFI-institute helped me transition from marketing to software engineering in just 6 months. The web development bootcamp was incredibly comprehensive and practical.",
-    course: "Web Development Bootcamp",
-    name: "Alex Thompson",
-    role: "Software Engineer at Stripe",
+      'WEFI-Institute helped me transition from marketing to software engineering in just 6 months. The web development bootcamp was incredibly comprehensive and practical.',
+    course: 'Web Development Bootcamp',
+    name: 'Alex Thompson',
+    role: 'Software Engineer at Stripe',
     image:
-      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80",
+      'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80',
   },
   {
     quote:
-      "The machine learning courses are top-notch. I went from knowing basic Python to building production ML models. Now I work as a data scientist at a top tech company.",
-    course: "Machine Learning A-Z",
-    name: "Maria Garcia",
-    role: "Data Scientist at Meta",
+      'The machine learning courses are top-notch. I went from knowing basic Python to building production ML models. Now I work as a data scientist at a top tech company.',
+    course: 'Machine Learning A-Z',
+    name: 'Maria Garcia',
+    role: 'Data Scientist at Meta',
     image:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=200&q=80",
+      'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=200&q=80',
   },
   {
     quote:
-      "As a self-taught designer, WEFI-institute filled all the gaps in my knowledge. The UI/UX courses taught me professional workflows and helped me land my dream job.",
-    course: "UI/UX Design Complete Guide",
-    name: "James Wilson",
-    role: "Product Designer at Figma",
+      'As a self-taught designer, WEFI-Institute filled all the gaps in my knowledge. The UI/UX courses taught me professional workflows and helped me land my dream job.',
+    course: 'UI/UX Design Complete Guide',
+    name: 'James Wilson',
+    role: 'Product Designer at Figma',
     image:
-      "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=200&q=80",
+      'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=200&q=80',
   },
 ];
 
