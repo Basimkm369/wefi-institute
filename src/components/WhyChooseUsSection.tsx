@@ -28,10 +28,10 @@ const highlights = [
 ];
 
 const stats = [
-  { value: '25K+', label: 'Daily Career Updates' },
-  { value: '11L+', label: 'Students Reached' },
-  { value: '260+', label: 'Professional Fields' },
-  { value: '90', label: 'Trained Counsellors' },
+  { value: '11L+', label: 'Excellency Beneficiaries' },
+  { value: '25K+', label: 'Daily Career Info Reach' },
+  { value: '5L+', label: 'Career Paths Fixed' },
+  { value: '3.5L+', label: 'Aptitude Test Participants' },
 ];
 
 const WhyChooseUsSection = () => {

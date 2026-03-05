@@ -7,10 +7,10 @@ import {
 } from 'lucide-react';
 
 const stats = [
-  { value: '50K+', label: 'Active Students' },
-  { value: '500+', label: 'Expert Instructors' },
-  { value: '2,500+', label: 'Quality Courses' },
-  { value: '95%', label: 'Success Rate' },
+  { value: '11L+', label: 'Excellency Beneficiaries' },
+  { value: '25K+', label: 'Daily Career Info Reach' },
+  { value: '5L+', label: 'Career Paths Fixed' },
+  { value: '3.5L+', label: 'Aptitude Test Participants' },
 ];
 
 const HeroSection = () => {

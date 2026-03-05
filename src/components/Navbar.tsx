@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Beneficiaries", href: "/#beneficiaries" },
   { label: "Courses", href: "/#courses" },
   { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
