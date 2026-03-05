@@ -114,65 +114,68 @@ const Navbar = () => {
         </button>
       </div>
 
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[80] h-dvh bg-black/35 dark:bg-black/60 lg:hidden">
-          <aside className="flex h-dvh w-full flex-col bg-white dark:bg-[#020617]">
-            <div className="container flex h-20 shrink-0 items-center justify-between border-b border-slate-200 dark:border-white/10">
-              <Link href="/" className="shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
-                <BrandLogo textClassName="text-2xl text-foreground" />
-              </Link>
+      <div
+        className={cn(
+          "fixed inset-0 z-[80] h-dvh bg-black/35 dark:bg-black/60 lg:hidden",
+          isMobileMenuOpen ? "block" : "hidden",
+        )}
+      >
+        <aside className="flex h-dvh w-full flex-col bg-white dark:bg-[#020617]">
+          <div className="container flex h-20 shrink-0 items-center justify-between border-b border-slate-200 dark:border-white/10">
+            <Link href="/" className="shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
+              <BrandLogo textClassName="text-2xl text-foreground" />
+            </Link>
+            <button
+              type="button"
+              aria-label="Close menu"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md text-slate-600 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+
+          <div className="container flex-1 overflow-y-auto bg-white py-5 dark:bg-[#020617]">
+            <nav className="flex flex-col gap-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => {
+                    if (link.href.includes("#")) {
+                      setHash(link.href.substring(link.href.indexOf("#")));
+                    }
+                    setIsMobileMenuOpen(false);
+                  }}
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                  className={cn(
+                    "rounded-lg px-4 py-3 text-base font-medium transition-colors",
+                    isActive(link.href)
+                      ? "bg-primary/10 text-primary"
+                      : "text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="mt-6 border-t border-slate-200 pt-6 dark:border-white/10">
               <button
                 type="button"
-                aria-label="Close menu"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md text-slate-600 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10"
+                aria-label="Toggle dark mode"
+                onClick={toggleTheme}
+                className="flex w-full items-center justify-center gap-2 rounded-lg px-4 py-3 text-base font-medium text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10"
               >
-                <X className="h-5 w-5" />
+                <Moon className="h-5 w-5 dark:hidden" />
+                <Sun className="hidden h-5 w-5 dark:block" />
+                <span className="dark:hidden">Dark Mode</span>
+                <span className="hidden dark:inline">Light Mode</span>
               </button>
             </div>
-
-            <div className="container flex-1 overflow-y-auto bg-white py-5 dark:bg-[#020617]">
-              <nav className="flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    onClick={() => {
-                      if (link.href.includes("#")) {
-                        setHash(link.href.substring(link.href.indexOf("#")));
-                      }
-                      setIsMobileMenuOpen(false);
-                    }}
-                    aria-current={isActive(link.href) ? "page" : undefined}
-                    className={cn(
-                      "rounded-lg px-4 py-3 text-base font-medium transition-colors",
-                      isActive(link.href)
-                        ? "bg-primary/10 text-primary"
-                        : "text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10",
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-
-              <div className="mt-6 border-t border-slate-200 pt-6 dark:border-white/10">
-                <button
-                  type="button"
-                  aria-label="Toggle dark mode"
-                  onClick={toggleTheme}
-                  className="flex w-full items-center justify-center gap-2 rounded-lg px-4 py-3 text-base font-medium text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10"
-                >
-                  <Moon className="h-5 w-5 dark:hidden" />
-                  <Sun className="hidden h-5 w-5 dark:block" />
-                  <span className="dark:hidden">Dark Mode</span>
-                  <span className="hidden dark:inline">Light Mode</span>
-                </button>
-              </div>
-            </div>
-          </aside>
-        </div>
-      )}
+          </div>
+        </aside>
+      </div>
     </header>
   );
 };

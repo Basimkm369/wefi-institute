@@ -14,6 +14,8 @@ const BrandLogo = ({ className, textClassName }: BrandLogoProps) => {
         alt="WEFI logo"
         width={48}
         height={48}
+        priority
+        sizes="48px"
         className="h-12 w-12 rounded-2xl object-cover"
       />
       <span className={cn('text-xl font-bold', textClassName)}>
