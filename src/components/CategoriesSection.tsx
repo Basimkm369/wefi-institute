@@ -1,7 +1,5 @@
 'use client';
 
-import { useRef, type TouchEvent } from 'react';
-
 type Milestone = {
   year: number;
   title: string;
@@ -160,38 +158,6 @@ const chunkMilestones = <T,>(items: T[], size: number): T[][] => {
 const milestoneRows = chunkMilestones(milestones, 4);
 
 const CategoriesSection = () => {
-  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
-  const isHorizontalSwipeRef = useRef(false);
-
-  const handleMobileSwipeStart = (event: TouchEvent<HTMLDivElement>) => {
-    const touch = event.touches[0];
-    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
-    isHorizontalSwipeRef.current = false;
-  };
-
-  const handleMobileSwipeMove = (event: TouchEvent<HTMLDivElement>) => {
-    if (!touchStartRef.current) {
-      return;
-    }
-
-    const touch = event.touches[0];
-    const deltaX = touch.clientX - touchStartRef.current.x;
-    const deltaY = touch.clientY - touchStartRef.current.y;
-
-    if (!isHorizontalSwipeRef.current && Math.abs(deltaX) > 8) {
-      isHorizontalSwipeRef.current = Math.abs(deltaX) > Math.abs(deltaY);
-    }
-
-    if (isHorizontalSwipeRef.current) {
-      event.preventDefault();
-    }
-  };
-
-  const handleMobileSwipeEnd = () => {
-    touchStartRef.current = null;
-    isHorizontalSwipeRef.current = false;
-  };
-
   return (
     <section
       id="milestones"
@@ -213,11 +179,7 @@ const CategoriesSection = () => {
 
         <div className="mt-12 md:hidden">
           <div
-            className="relative flex items-stretch snap-x snap-proximity gap-0 overflow-x-auto pl-1 pr-5 pb-2 pt-1 touch-pan-x overscroll-x-contain overscroll-y-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-            onTouchStart={handleMobileSwipeStart}
-            onTouchMove={handleMobileSwipeMove}
-            onTouchEnd={handleMobileSwipeEnd}
-            onTouchCancel={handleMobileSwipeEnd}
+            className="relative flex items-stretch snap-x snap-proximity gap-0 overflow-x-auto pl-1 pr-5 pb-2 pt-1 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
             {milestones.map((milestone) => (
               <div
@@ -228,7 +190,7 @@ const CategoriesSection = () => {
                   <span className="inline-flex rounded-full bg-primary px-4 py-1 text-xs font-bold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)]">
                     {milestone.year}
                   </span>
-                  <div className="absolute -left-1 -right-1 top-[2.6rem] h-1 rounded-full bg-gradient-to-r from-primary/70 via-sky-400 to-primary" />
+                  <div className="absolute -left-px -right-px top-[2.6rem] h-1 bg-primary/85" />
                   <span className="relative mt-4 h-7 w-7 rounded-full border-4 border-white bg-primary shadow-[0_8px_18px_rgba(37,99,235,0.35)] dark:border-[#071634]" />
                   <span className="mt-1 h-5 w-0 border-l-2 border-dashed border-primary/45" />
                 </div>
