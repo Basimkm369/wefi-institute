@@ -213,33 +213,35 @@ const CategoriesSection = () => {
 
         <div className="mt-12 md:hidden">
           <div
-            className="flex snap-x snap-proximity gap-3 overflow-x-auto pl-1 pr-5 pb-2 pt-1 touch-pan-x overscroll-x-contain overscroll-y-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="relative flex items-stretch snap-x snap-proximity gap-0 overflow-x-auto pl-1 pr-5 pb-2 pt-1 touch-pan-x overscroll-x-contain overscroll-y-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             onTouchStart={handleMobileSwipeStart}
             onTouchMove={handleMobileSwipeMove}
             onTouchEnd={handleMobileSwipeEnd}
             onTouchCancel={handleMobileSwipeEnd}
           >
             {milestones.map((milestone) => (
-              <article
+              <div
                 key={`${milestone.year}-${milestone.title}-mobile`}
-                className="w-[78vw] max-w-[300px] shrink-0 snap-start rounded-2xl border border-primary/10 bg-white/90 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-[#0d1a35]/90"
+                className="flex w-[78vw] max-w-[300px] shrink-0 snap-start flex-col"
               >
-                <div className="mb-3 flex flex-col items-center">
+                <div className="relative flex flex-col items-center">
                   <span className="inline-flex rounded-full bg-primary px-4 py-1 text-xs font-bold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)]">
                     {milestone.year}
                   </span>
-                  <div className="relative mt-4 h-1 w-full rounded-full bg-gradient-to-r from-primary/70 via-sky-400 to-primary">
-                    <span className="absolute left-1/2 top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white bg-primary shadow-[0_8px_18px_rgba(37,99,235,0.35)] dark:border-[#071634]" />
-                  </div>
-                  <span className="mt-5 h-5 w-0 border-l-2 border-dashed border-primary/45" />
+                  <div className="absolute -left-1 -right-1 top-[2.6rem] h-1 rounded-full bg-gradient-to-r from-primary/70 via-sky-400 to-primary" />
+                  <span className="relative mt-4 h-7 w-7 rounded-full border-4 border-white bg-primary shadow-[0_8px_18px_rgba(37,99,235,0.35)] dark:border-[#071634]" />
+                  <span className="mt-1 h-5 w-0 border-l-2 border-dashed border-primary/45" />
                 </div>
-                <h3 className="text-center text-sm font-semibold text-primary">
-                  {milestone.title}
-                </h3>
-                <p className="mt-2 px-2 text-center text-sm font-normal leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
-                  {milestone.description}
-                </p>
-              </article>
+
+                <article className="mx-1.5 mt-3 flex-1 rounded-2xl border border-primary/10 bg-white/90 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-[#0d1a35]/90">
+                  <h3 className="text-center text-sm font-semibold text-primary">
+                    {milestone.title}
+                  </h3>
+                  <p className="mt-2 px-2 text-center text-sm font-normal leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
+                    {milestone.description}
+                  </p>
+                </article>
+              </div>
             ))}
           </div>
         </div>
@@ -280,7 +282,7 @@ const CategoriesSection = () => {
                   {row.map((milestone) => (
                     <article
                       key={`${milestone.year}-${milestone.title}-card`}
-                      className="rounded-2xl border border-primary/10 bg-white/90 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-[#0d1a35]/90"
+                      className="h-full rounded-2xl border border-primary/10 bg-white/90 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-[#0d1a35]/90"
                     >
                       <h3 className="text-center text-sm font-semibold text-primary lg:text-base">
                         {milestone.title}
