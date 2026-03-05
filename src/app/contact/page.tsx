@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
-import { Mail, Phone, SendHorizonal } from 'lucide-react';
+import ContactForm from '@/components/ContactForm';
+import { Mail, Phone } from 'lucide-react';
 
 const ContactPage = () => {
   return (
@@ -56,87 +57,7 @@ const ContactPage = () => {
                   </div>
                 </div>
 
-                <form className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#0d1a35] md:p-8">
-                  <div className="grid gap-5 md:grid-cols-2">
-                    <div className="md:col-span-1">
-                      <label
-                        htmlFor="fullName"
-                        className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300"
-                      >
-                        Full Name
-                      </label>
-                      <input
-                        id="fullName"
-                        name="fullName"
-                        type="text"
-                        required
-                        placeholder="Enter your full name"
-                        className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-white/15 dark:bg-[#122142] dark:text-white"
-                      />
-                    </div>
-
-                    <div className="md:col-span-1">
-                      <label
-                        htmlFor="email"
-                        className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300"
-                      >
-                        Email
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="Enter your email"
-                        className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-white/15 dark:bg-[#122142] dark:text-white"
-                      />
-                    </div>
-
-                    <div className="md:col-span-2">
-                      <label
-                        htmlFor="phone"
-                        className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300"
-                      >
-                        Phone
-                      </label>
-                      <input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        required
-                        placeholder="Enter your phone number"
-                        className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-white/15 dark:bg-[#122142] dark:text-white"
-                      />
-                    </div>
-
-                    <div className="md:col-span-2">
-                      <label
-                        htmlFor="message"
-                        className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300"
-                      >
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        required
-                        rows={6}
-                        placeholder="Write your message"
-                        className="w-full resize-y rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-white/15 dark:bg-[#122142] dark:text-white"
-                      />
-                    </div>
-
-                    <div className="md:col-span-2">
-                      <button
-                        type="submit"
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary/90 md:w-auto"
-                      >
-                        <SendHorizonal className="h-4 w-4" />
-                        Send Message
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                <ContactForm />
               </div>
             </div>
           </div>
