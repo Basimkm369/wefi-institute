@@ -93,3 +93,28 @@
     font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   }
 }
+
+@layer components {
+  .milestone-mobile-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(37, 99, 235, 0.95) rgba(37, 99, 235, 0.16);
+  }
+
+  .milestone-mobile-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .milestone-mobile-scroll::-webkit-scrollbar-track {
+    background: rgba(37, 99, 235, 0.16);
+    border-radius: 999px;
+  }
+
+  .milestone-mobile-scroll::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: linear-gradient(90deg, #38bdf8 0%, #2563eb 100%);
+  }
+
+  .milestone-mobile-scroll::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #0ea5e9 0%, #1d4ed8 100%);
+  }
+}

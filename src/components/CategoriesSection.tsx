@@ -1,3 +1,7 @@
+'use client';
+
+import { useRef, type TouchEvent } from 'react';
+
 type Milestone = {
   year: number;
   title: string;
@@ -156,6 +160,38 @@ const chunkMilestones = <T,>(items: T[], size: number): T[][] => {
 const milestoneRows = chunkMilestones(milestones, 4);
 
 const CategoriesSection = () => {
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  const isHorizontalSwipeRef = useRef(false);
+
+  const handleMobileSwipeStart = (event: TouchEvent<HTMLDivElement>) => {
+    const touch = event.touches[0];
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+    isHorizontalSwipeRef.current = false;
+  };
+
+  const handleMobileSwipeMove = (event: TouchEvent<HTMLDivElement>) => {
+    if (!touchStartRef.current) {
+      return;
+    }
+
+    const touch = event.touches[0];
+    const deltaX = touch.clientX - touchStartRef.current.x;
+    const deltaY = touch.clientY - touchStartRef.current.y;
+
+    if (!isHorizontalSwipeRef.current && Math.abs(deltaX) > 8) {
+      isHorizontalSwipeRef.current = Math.abs(deltaX) > Math.abs(deltaY);
+    }
+
+    if (isHorizontalSwipeRef.current) {
+      event.preventDefault();
+    }
+  };
+
+  const handleMobileSwipeEnd = () => {
+    touchStartRef.current = null;
+    isHorizontalSwipeRef.current = false;
+  };
+
   return (
     <section
       id="milestones"
@@ -176,28 +212,34 @@ const CategoriesSection = () => {
         </div>
 
         <div className="mt-12 md:hidden">
-          <div className="space-y-6">
-            {milestones.map((milestone, index) => (
-              <div key={`${milestone.year}-${milestone.title}-mobile`} className="relative">
-                <div className="mb-2 flex flex-col items-center">
-                  <span className="inline-flex rounded-full bg-primary px-3 py-1 text-xs font-bold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)]">
+          <div
+            className="milestone-mobile-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-3 pt-1 touch-pan-x overscroll-x-contain overscroll-y-none [scrollbar-gutter:stable]"
+            onTouchStart={handleMobileSwipeStart}
+            onTouchMove={handleMobileSwipeMove}
+            onTouchEnd={handleMobileSwipeEnd}
+            onTouchCancel={handleMobileSwipeEnd}
+          >
+            {milestones.map((milestone) => (
+              <article
+                key={`${milestone.year}-${milestone.title}-mobile`}
+                className="w-[84vw] max-w-[340px] shrink-0 snap-start rounded-2xl border border-primary/10 bg-white/90 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-[#0d1a35]/90"
+              >
+                <div className="mb-3 flex flex-col items-center">
+                  <span className="inline-flex rounded-full bg-primary px-4 py-1 text-xs font-bold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)]">
                     {milestone.year}
                   </span>
-                  <span className="mt-3 h-5 w-5 rounded-full border-4 border-white bg-primary shadow-[0_8px_18px_rgba(37,99,235,0.35)] dark:border-[#071634]" />
-                  {index < milestones.length - 1 && (
-                    <span className="mt-1 h-6 w-0 border-l-2 border-dashed border-primary/45" />
-                  )}
+                  <div className="relative mt-3 h-1 w-full rounded-full bg-gradient-to-r from-primary/70 via-sky-400 to-primary">
+                    <span className="absolute left-1/2 top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white bg-primary shadow-[0_8px_18px_rgba(37,99,235,0.35)] dark:border-[#071634]" />
+                  </div>
+                  <span className="mt-4 h-5 w-0 border-l-2 border-dashed border-primary/45" />
                 </div>
-
-                <article className="rounded-2xl border border-primary/10 bg-white/90 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-[#0d1a35]/90">
-                  <h3 className="text-center text-sm font-semibold text-primary">
-                    {milestone.title}
-                  </h3>
-                  <p className="mt-2 px-2 text-center text-xs leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
-                    {milestone.description}
-                  </p>
-                </article>
-              </div>
+                <h3 className="text-center text-sm font-semibold text-primary">
+                  {milestone.title}
+                </h3>
+                <p className="mt-2 px-2 text-center text-xs leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
+                  {milestone.description}
+                </p>
+              </article>
             ))}
           </div>
         </div>
