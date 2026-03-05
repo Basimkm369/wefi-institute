@@ -228,15 +228,15 @@ const CategoriesSection = () => {
                   <span className="inline-flex rounded-full bg-primary px-4 py-1 text-xs font-bold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)]">
                     {milestone.year}
                   </span>
-                  <div className="relative mt-3 h-1 w-full rounded-full bg-gradient-to-r from-primary/70 via-sky-400 to-primary">
+                  <div className="relative mt-4 h-1 w-full rounded-full bg-gradient-to-r from-primary/70 via-sky-400 to-primary">
                     <span className="absolute left-1/2 top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white bg-primary shadow-[0_8px_18px_rgba(37,99,235,0.35)] dark:border-[#071634]" />
                   </div>
-                  <span className="mt-4 h-5 w-0 border-l-2 border-dashed border-primary/45" />
+                  <span className="mt-5 h-5 w-0 border-l-2 border-dashed border-primary/45" />
                 </div>
                 <h3 className="text-center text-sm font-semibold text-primary">
                   {milestone.title}
                 </h3>
-                <p className="mt-2 px-2 text-center text-xs leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
+                <p className="mt-2 px-2 text-center text-sm font-normal leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
                   {milestone.description}
                 </p>
               </article>
@@ -285,7 +285,7 @@ const CategoriesSection = () => {
                       <h3 className="text-center text-sm font-semibold text-primary lg:text-base">
                         {milestone.title}
                       </h3>
-                      <p className="mt-2 px-2 text-center text-xs leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
+                      <p className="mt-2 px-2 text-center text-sm font-normal leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
                         {milestone.description}
                       </p>
                     </article>
