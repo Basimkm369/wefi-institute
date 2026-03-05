@@ -97,7 +97,7 @@
 @layer components {
   .milestone-mobile-scroll {
     scrollbar-width: thin;
-    scrollbar-color: rgba(37, 99, 235, 0.95) rgba(37, 99, 235, 0.16);
+    scrollbar-color: rgba(37, 99, 235, 0.9) rgba(37, 99, 235, 0.22);
   }
 
   .milestone-mobile-scroll::-webkit-scrollbar {
@@ -105,16 +105,12 @@
   }
 
   .milestone-mobile-scroll::-webkit-scrollbar-track {
-    background: rgba(37, 99, 235, 0.16);
-    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.2);
+    border-radius: 9999px;
   }
 
   .milestone-mobile-scroll::-webkit-scrollbar-thumb {
-    border-radius: 999px;
-    background: linear-gradient(90deg, #38bdf8 0%, #2563eb 100%);
-  }
-
-  .milestone-mobile-scroll::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(90deg, #0ea5e9 0%, #1d4ed8 100%);
+    border-radius: 9999px;
+    background: linear-gradient(90deg, #60a5fa 0%, #2563eb 100%);
   }
 }

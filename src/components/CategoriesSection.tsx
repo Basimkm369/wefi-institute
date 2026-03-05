@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, type TouchEvent } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 type Milestone = {
   year: number;
@@ -162,6 +163,7 @@ const milestoneRows = chunkMilestones(milestones, 4);
 const CategoriesSection = () => {
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const isHorizontalSwipeRef = useRef(false);
+  const mobileScrollerRef = useRef<HTMLDivElement | null>(null);
 
   const handleMobileSwipeStart = (event: TouchEvent<HTMLDivElement>) => {
     const touch = event.touches[0];
@@ -192,6 +194,20 @@ const CategoriesSection = () => {
     isHorizontalSwipeRef.current = false;
   };
 
+  const scrollMilestones = (direction: 'prev' | 'next') => {
+    if (!mobileScrollerRef.current) {
+      return;
+    }
+
+    const scrollAmount = Math.max(220, Math.round(mobileScrollerRef.current.clientWidth * 0.82));
+    const left = direction === 'next' ? scrollAmount : -scrollAmount;
+
+    mobileScrollerRef.current.scrollBy({
+      left,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <section
       id="milestones"
@@ -212,35 +228,55 @@ const CategoriesSection = () => {
         </div>
 
         <div className="mt-12 md:hidden">
-          <div
-            className="milestone-mobile-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-3 pt-1 touch-pan-x overscroll-x-contain overscroll-y-none [scrollbar-gutter:stable]"
-            onTouchStart={handleMobileSwipeStart}
-            onTouchMove={handleMobileSwipeMove}
-            onTouchEnd={handleMobileSwipeEnd}
-            onTouchCancel={handleMobileSwipeEnd}
-          >
-            {milestones.map((milestone) => (
-              <article
-                key={`${milestone.year}-${milestone.title}-mobile`}
-                className="w-[84vw] max-w-[340px] shrink-0 snap-start rounded-2xl border border-primary/10 bg-white/90 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-[#0d1a35]/90"
-              >
-                <div className="mb-3 flex flex-col items-center">
-                  <span className="inline-flex rounded-full bg-primary px-4 py-1 text-xs font-bold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)]">
-                    {milestone.year}
-                  </span>
-                  <div className="relative mt-3 h-1 w-full rounded-full bg-gradient-to-r from-primary/70 via-sky-400 to-primary">
-                    <span className="absolute left-1/2 top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white bg-primary shadow-[0_8px_18px_rgba(37,99,235,0.35)] dark:border-[#071634]" />
+          <div className="relative">
+            <button
+              type="button"
+              aria-label="Scroll milestones left"
+              onClick={() => scrollMilestones('prev')}
+              className="absolute left-0 top-[46%] z-10 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-primary/20 bg-white/95 text-sm font-bold text-primary shadow-sm transition hover:bg-primary/5 dark:border-white/15 dark:bg-[#0d1a35]/95"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              aria-label="Scroll milestones right"
+              onClick={() => scrollMilestones('next')}
+              className="absolute right-0 top-[46%] z-10 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-primary/20 bg-white/95 text-sm font-bold text-primary shadow-sm transition hover:bg-primary/5 dark:border-white/15 dark:bg-[#0d1a35]/95"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+
+            <div
+              className="milestone-mobile-scroll flex snap-x snap-mandatory gap-4 overflow-x-auto px-10 pb-3 pt-1 touch-pan-x overscroll-x-contain overscroll-y-none [scrollbar-gutter:stable]"
+              ref={mobileScrollerRef}
+              onTouchStart={handleMobileSwipeStart}
+              onTouchMove={handleMobileSwipeMove}
+              onTouchEnd={handleMobileSwipeEnd}
+              onTouchCancel={handleMobileSwipeEnd}
+            >
+              {milestones.map((milestone) => (
+                <article
+                  key={`${milestone.year}-${milestone.title}-mobile`}
+                  className="w-[80vw] max-w-[320px] shrink-0 snap-start rounded-2xl border border-primary/10 bg-white/90 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-[#0d1a35]/90"
+                >
+                  <div className="mb-3 flex flex-col items-center">
+                    <span className="inline-flex rounded-full bg-primary px-4 py-1 text-xs font-bold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)]">
+                      {milestone.year}
+                    </span>
+                    <div className="relative mt-3 h-1 w-full rounded-full bg-gradient-to-r from-primary/70 via-sky-400 to-primary">
+                      <span className="absolute left-1/2 top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-white bg-primary shadow-[0_8px_18px_rgba(37,99,235,0.35)] dark:border-[#071634]" />
+                    </div>
+                    <span className="mt-4 h-5 w-0 border-l-2 border-dashed border-primary/45" />
                   </div>
-                  <span className="mt-4 h-5 w-0 border-l-2 border-dashed border-primary/45" />
-                </div>
-                <h3 className="text-center text-sm font-semibold text-primary">
-                  {milestone.title}
-                </h3>
-                <p className="mt-2 px-2 text-center text-xs leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
-                  {milestone.description}
-                </p>
-              </article>
-            ))}
+                  <h3 className="text-center text-sm font-semibold text-primary">
+                    {milestone.title}
+                  </h3>
+                  <p className="mt-2 px-2 text-center text-xs leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
+                    {milestone.description}
+                  </p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
 
