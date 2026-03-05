@@ -1,7 +1,4 @@
-import { Award, Clock3, Code2, Play, ShieldCheck, Users } from 'lucide-react';
-import avatar1 from '@/assets/9720004.jpg';
-import avatar2 from '@/assets/9720026.jpg';
-import avatar3 from '@/assets/9720027.jpg';
+import { Award, Clock3, Code2, ShieldCheck, Sparkles, Users } from 'lucide-react';
 
 const highlights = [
   {
@@ -30,84 +27,76 @@ const highlights = [
   },
 ];
 
-const students = [avatar1.src, avatar2.src, avatar3.src];
+const stats = [
+  { value: '25K+', label: 'Daily Career Updates' },
+  { value: '11L+', label: 'Students Reached' },
+  { value: '260+', label: 'Professional Fields' },
+  { value: '90', label: 'Trained Counsellors' },
+];
 
 const WhyChooseUsSection = () => {
   return (
-    <section className="border-t border-slate-200/70 bg-white py-20 md:py-28 dark:border-white/10 dark:bg-[#061226]">
-      <div className="container grid items-center gap-12 lg:grid-cols-2">
-        <div>
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">
+    <section
+      id="why-choose-us"
+      className="relative isolate overflow-hidden border-t border-white/10 py-20 md:py-24"
+    >
+      <div className="absolute inset-0 bg-[#433fbd]" />
+      <div className="absolute inset-0 [background-image:linear-gradient(to_right,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:64px_64px]" />
+
+      <div className="container relative grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="lg:sticky lg:top-28">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-100">
             Why Choose Us
           </p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-950 dark:text-white lg:text-4xl">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white lg:text-4xl">
             The Best Platform to Learn New Skills
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+          <p className="mt-4 text-base leading-relaxed text-indigo-100/95">
             We provide everything you need to succeed in your learning journey.
             Our platform is designed to make learning effective and enjoyable.
           </p>
 
-          <div className="mt-10 grid gap-8 sm:grid-cols-2">
-            {highlights.map((item) => {
-              const Icon = item.icon;
-              return (
-                <article key={item.title}>
-                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-100 text-primary dark:bg-indigo-500/15">
-                    <Icon className="h-8 w-8" />
-                  </div>
-                  <h3 className="mt-5 text-base font-semibold text-slate-950 dark:text-white">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                    {item.description}
-                  </p>
-                </article>
-              );
-            })}
+          <div className="mt-8 grid grid-cols-2 gap-3">
+            {stats.map((stat) => (
+              <article
+                key={stat.label}
+                className="rounded-2xl border border-white/20 bg-white/[0.08] px-4 py-4 shadow-[0_12px_28px_rgba(3,17,63,0.32)] backdrop-blur-md"
+              >
+                <p className="text-2xl font-extrabold text-white">{stat.value}</p>
+                <p className="mt-1 text-xs text-indigo-100/90">{stat.label}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-cyan-200/35 bg-cyan-200/15 px-4 py-2 text-sm font-medium text-cyan-100">
+            <Sparkles className="h-4 w-4" />
+            Trusted, guided, and outcomes-focused.
           </div>
         </div>
 
-        <div className="relative">
-          <div className="overflow-hidden rounded-[2rem]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
-              alt="Students collaborating"
-              className="h-full w-full object-cover"
-            />
-          </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {highlights.map((item, index) => {
+            const Icon = item.icon;
+            const cardOffset = index % 2 === 1 ? 'sm:translate-y-6' : '';
 
-          <button
-            type="button"
-            aria-label="Play intro video"
-            className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-primary shadow-xl"
-          >
-            <Play className="h-10 w-10 fill-current" />
-          </button>
-
-          <div className="absolute -bottom-6 left-6 flex items-center gap-4 rounded-3xl bg-white px-6 py-4 shadow-xl dark:border dark:border-white/10 dark:bg-[#0d1a35]">
-            <div className="flex -space-x-3">
-              {students.map((avatar, index) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  key={avatar}
-                  src={avatar}
-                  alt={`Student ${index + 1}`}
-                  className="h-12 w-12 rounded-full border-2 border-white object-cover"
-                />
-              ))}
-            </div>
-            <div>
-              <p className="text-base font-semibold text-slate-950 dark:text-white">
-                50K+
-              </p>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                Happy Students
-              </p>
-            </div>
-            <ShieldCheck className="hidden h-7 w-7 text-emerald-500 sm:block" />
-          </div>
+            return (
+              <article
+                key={item.title}
+                className={`rounded-3xl border border-white/20 bg-white/[0.08] p-5 shadow-[0_16px_34px_rgba(3,17,63,0.32)] backdrop-blur-md transition hover:bg-white/[0.12] ${cardOffset}`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-100/20 text-cyan-100">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <ShieldCheck className="h-5 w-5 text-emerald-300" />
+                </div>
+                <h3 className="mt-5 text-lg font-semibold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-indigo-100/90">
+                  {item.description}
+                </p>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -98,35 +98,35 @@ const BeneficiariesSection = () => {
   return (
     <section
       id="beneficiaries"
-      className="border-t border-slate-200/70 bg-white py-20 md:py-24 dark:border-white/10 dark:bg-[#061226]"
+      className="relative isolate scroll-mt-[5rem] overflow-hidden border-t border-white/10 py-20 md:py-24"
     >
-      <div className="container">
+      <div className="absolute inset-0 bg-[#433fbd]" />
+      <div className="absolute inset-0 [background-image:linear-gradient(to_right,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:64px_64px]" />
+
+      <div className="container relative">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-100/90">
             Impact Numbers
           </p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-950 dark:text-white lg:text-4xl">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white lg:text-4xl">
             Beneficiaries
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+          <p className="mt-4 text-base leading-relaxed text-indigo-100/90">
             WEFI initiatives have reached learners and aspirants across academic,
             career, and mentorship programs.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {beneficiaries.map((item) => (
             <article
               key={`${item.value}-${item.description}`}
-              className="relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-b from-white to-slate-50/80 px-5 py-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:from-[#0d1a35] dark:to-[#102145]"
+              className="group relative flex min-h-[170px] flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/15 bg-white/[0.06] px-5 py-6 text-center shadow-[0_14px_38px_rgba(8,20,84,0.3)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.1]"
             >
-              <span className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-primary/70 via-sky-400 to-primary" />
-              <div className="flex justify-center">
-                <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-sm font-extrabold text-primary">
-                  {item.value}
-                </span>
-              </div>
-              <p className="mt-3 text-center text-sm leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
+              <p className="text-3xl font-extrabold tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)] lg:text-4xl">
+                {item.value}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-indigo-100/95 [text-wrap:balance]">
                 {item.description}
               </p>
             </article>

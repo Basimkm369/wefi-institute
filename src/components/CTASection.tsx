@@ -3,7 +3,7 @@ import { ArrowRight, Check } from 'lucide-react';
 const CTASection = () => {
   return (
     <section
-      id="pricing"
+      id="cta"
       className="scroll-mt-[5rem] relative overflow-hidden bg-[radial-gradient(circle_at_20%_95%,rgba(56,189,248,0.15),transparent_38%),linear-gradient(180deg,#4237b8_0%,#4b44d6_100%)] py-20 text-center md:py-28"
     >
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:80px_80px]" />

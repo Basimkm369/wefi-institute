@@ -8,10 +8,9 @@ import BrandLogo from "@/components/BrandLogo";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Courses", href: "/#courses" },
   { label: "Milestones", href: "/#milestones" },
-  { label: "Instructors", href: "/#instructors" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Beneficiaries", href: "/#beneficiaries" },
+  { label: "Courses", href: "/#courses" },
   { label: "About", href: "/about" },
 ];
 

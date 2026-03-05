@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import AboutHeroSection from "@/components/AboutHeroSection";
 import AboutMissionSection from "@/components/AboutMissionSection";
-import CTASection from "@/components/CTASection";
+import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import Footer from "@/components/Footer";
 
 const AboutPage = () => {
@@ -11,7 +11,7 @@ const AboutPage = () => {
       <main>
         <AboutHeroSection />
         <AboutMissionSection />
-        <CTASection />
+        <WhyChooseUsSection />
       </main>
       <Footer />
     </div>

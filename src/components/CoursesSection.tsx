@@ -318,16 +318,16 @@ const CoursesSection = () => {
               key={`${course.category}-${course.link}`}
               className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-lg dark:border-white/10 dark:bg-[#0d1a35]"
             >
-              <div className="h-44 border-b border-slate-200 bg-slate-50 p-6 dark:border-white/10 dark:bg-white/[0.02]">
+              <div className="h-32 border-b border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-white/[0.02]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={courseCardImage}
                   alt="Course document icon"
-                  className="h-full w-full object-contain"
+                  className="mx-auto h-20 w-20 object-contain"
                 />
               </div>
 
-              <div className="flex flex-1 flex-col p-6">
+              <div className="flex flex-1 flex-col p-5">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">
                   {course.category}
                 </p>
@@ -340,7 +340,7 @@ const CoursesSection = () => {
                     href={course.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white transition hover:bg-primary/90"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-primary/90"
                   >
                     View Course <ArrowRight className="h-4 w-4" />
                   </a>
