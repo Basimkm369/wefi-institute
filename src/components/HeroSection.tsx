@@ -62,12 +62,9 @@ const HeroSection = () => {
           </span>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 gap-4 pt-8 md:grid-cols-4">
+        <div className="mt-14 grid grid-cols-2 gap-6 pt-8 md:grid-cols-4 md:gap-8">
           {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="flex min-h-32 flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center"
-            >
+            <div key={stat.label} className="text-center">
               <p className="text-4xl font-bold text-white lg:text-5xl">
                 {stat.value}
               </p>

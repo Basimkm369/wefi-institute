@@ -3,27 +3,27 @@ import { Award, Clock3, Code2, ShieldCheck, Sparkles, Users } from 'lucide-react
 const highlights = [
   {
     icon: Clock3,
-    title: 'Learn at Your Pace',
+    title: 'Daily Career Bulletin',
     description:
-      'Access courses anytime, anywhere. Learn on your schedule with lifetime access to all courses.',
+      'WEFI Bulletin delivers career updates to 25K+ beneficiaries every day.',
   },
   {
     icon: Users,
-    title: 'Expert Instructors',
+    title: 'Aptitude & Counselling Network',
     description:
-      'Learn from industry professionals working at top companies like Google, Meta, and Amazon.',
+      '3.5 lakh learners joined aptitude tests, supported by 90 trained career counsellors.',
   },
   {
     icon: Code2,
-    title: 'Hands-on Projects',
+    title: 'Excellency Impact',
     description:
-      'Build real-world projects and add them to your portfolio. Practice what you learn with coding exercises.',
+      '11 lakh students are part of Excellency, and 5 lakh career paths were fixed through guidance.',
   },
   {
     icon: Award,
-    title: 'Certificates',
+    title: 'Civil Service Pathway',
     description:
-      'Earn verified certificates upon completion. Share your achievements on LinkedIn and your resume.',
+      '1,456 joined pre-coaching, 250 trained in Civil Hub, and 148 in Civil Service Academy.',
   },
 ];
 

@@ -1,4 +1,5 @@
 import { Globe, ShieldCheck } from 'lucide-react';
+import study1 from '@/assets/study1.jpg';
 
 const AboutMissionSection = () => {
   return (
@@ -32,10 +33,10 @@ const AboutMissionSection = () => {
               </div>
               <div>
                 <p className="font-semibold text-slate-950 dark:text-white">
-                  Global Reach
+                  Wisdom Homes Network
                 </p>
                 <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-                  Students from 40+ countries
+                  24 value-based homes near cities and campuses
                 </p>
               </div>
             </div>
@@ -46,10 +47,10 @@ const AboutMissionSection = () => {
               </div>
               <div>
                 <p className="font-semibold text-slate-950 dark:text-white">
-                  Quality Content
+                  HiSem Admissions
                 </p>
                 <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-                  Vetted by industry experts
+                  586 central university admissions supported
                 </p>
               </div>
             </div>
@@ -60,7 +61,7 @@ const AboutMissionSection = () => {
           <div className="aspect-square overflow-hidden rounded-3xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+              src={study1.src}
               alt="Learners collaborating"
               className="h-full w-full object-cover"
             />
@@ -68,13 +69,13 @@ const AboutMissionSection = () => {
 
           <div className="absolute -bottom-6 -left-6 rounded-2xl bg-white p-6 shadow-xl dark:border dark:border-white/10 dark:bg-[#0d1a35]">
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              Founded
+              Career Guidance
             </p>
             <p className="mt-1 text-2xl font-bold text-slate-950 dark:text-white">
-              2018
+              Since 2015
             </p>
             <p className="text-sm text-slate-600 dark:text-slate-400">
-              San Francisco, CA
+              Wisdom Guide Initiative
             </p>
           </div>
         </div>
