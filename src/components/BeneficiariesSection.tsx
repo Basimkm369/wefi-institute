@@ -94,6 +94,29 @@ const beneficiaries: Beneficiary[] = [
   },
 ];
 
+const cardPatterns = [
+  '/beneficiaries/pattern-people.svg',
+  '/beneficiaries/pattern-cash.svg',
+  '/beneficiaries/pattern-cards.svg',
+  '/beneficiaries/pattern-medal.svg',
+  '/beneficiaries/pattern-book.svg',
+  '/beneficiaries/pattern-compass.svg',
+];
+
+const xOffsetCycle = [-18, -10, -2, 6, 14, 2, -6];
+const yOffsetCycle = ['20%', '36%', '50%', '62%', '78%'];
+const rotationCycle = [-12, -7, -3, 2, 6, 10, 14];
+const scaleCycle = [0.9, 0.96, 1, 1.04, 1.08];
+const opacityCycle = [0.2, 0.24, 0.28, 0.32];
+
+const getPatternStyle = (index: number) => ({
+  backgroundImage: `url(${cardPatterns[index % cardPatterns.length]})`,
+  backgroundSize: `${132 + (index % 5) * 12}px auto`,
+  backgroundPosition: `calc(100% + ${xOffsetCycle[index % xOffsetCycle.length]}px) ${yOffsetCycle[index % yOffsetCycle.length]}`,
+  transform: `rotate(${rotationCycle[index % rotationCycle.length]}deg) scale(${scaleCycle[index % scaleCycle.length]})`,
+  opacity: opacityCycle[index % opacityCycle.length],
+});
+
 const BeneficiariesSection = () => {
   return (
     <section
@@ -118,15 +141,21 @@ const BeneficiariesSection = () => {
         </div>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {beneficiaries.map((item) => (
+          {beneficiaries.map((item, index) => (
             <article
               key={`${item.value}-${item.description}`}
-              className="group relative flex min-h-[170px] flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/15 bg-white/[0.06] px-5 py-6 text-center shadow-[0_14px_38px_rgba(8,20,84,0.3)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.1]"
+              className="group relative isolate flex min-h-[170px] flex-col items-center justify-center overflow-hidden rounded-3xl border border-white/15 bg-white/[0.06] px-5 py-6 text-center shadow-[0_14px_38px_rgba(8,20,84,0.3)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.1]"
             >
-              <p className="text-3xl font-extrabold tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)] lg:text-4xl">
+              <div
+                className="pointer-events-none absolute inset-y-0 right-0 w-[64%] bg-no-repeat transition-all duration-300"
+                style={getPatternStyle(index)}
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-white/10 via-transparent to-transparent" />
+
+              <p className="relative z-10 text-3xl font-extrabold tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)] lg:text-4xl">
                 {item.value}
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-indigo-100/95 [text-wrap:balance]">
+              <p className="relative z-10 mt-3 text-sm leading-relaxed text-indigo-100/95 [text-wrap:balance]">
                 {item.description}
               </p>
             </article>

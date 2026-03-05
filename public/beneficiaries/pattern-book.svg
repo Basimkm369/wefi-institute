@@ -1,0 +1,7 @@
+﻿<svg width="220" height="150" viewBox="0 0 220 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#FFFFFF" fill-opacity="0.31">
+    <path d="M110 42c0-6 4-10 10-10h74c6 0 10 4 10 10v64c0 6-4 10-10 10h-74c-6 0-10-4-10-10V42Z"/>
+    <path d="M124 50v50c7-6 17-9 27-9 10 0 20 3 27 9V50c-7-6-17-9-27-9-10 0-20 3-27 9Z" fill-opacity="0.22"/>
+    <path d="M151 58v42" stroke="#FFFFFF" stroke-opacity="0.36" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>
