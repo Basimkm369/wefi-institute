@@ -222,7 +222,7 @@ const CategoriesSection = () => {
             {milestones.map((milestone) => (
               <article
                 key={`${milestone.year}-${milestone.title}-mobile`}
-                className="w-[82vw] max-w-[320px] shrink-0 snap-start rounded-2xl border border-primary/10 bg-white/90 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-[#0d1a35]/90"
+                className="w-[78vw] max-w-[300px] shrink-0 snap-start rounded-2xl border border-primary/10 bg-white/90 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-[#0d1a35]/90"
               >
                 <div className="mb-3 flex flex-col items-center">
                   <span className="inline-flex rounded-full bg-primary px-4 py-1 text-xs font-bold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)]">
