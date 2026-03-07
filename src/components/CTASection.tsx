@@ -1,4 +1,5 @@
 import { ArrowRight, Check } from 'lucide-react';
+import Link from 'next/link';
 
 const CTASection = () => {
   return (
@@ -20,18 +21,18 @@ const CTASection = () => {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#"
+            <Link
+              href="/courses"
               className="inline-flex min-w-56 items-center justify-center gap-2 rounded-full bg-white px-10 py-4 text-lg font-semibold text-primary transition hover:bg-white/95"
             >
               Start Learning Free <ArrowRight className="h-6 w-6" />
-            </a>
-            <a
-              href="#courses"
+            </Link>
+            <Link
+              href="/courses"
               className="inline-flex min-w-56 items-center justify-center rounded-full border border-white/45 px-10 py-4 text-lg font-semibold text-white transition hover:bg-white/10"
             >
               Browse Courses
-            </a>
+            </Link>
           </div>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-8 text-sm text-indigo-100">

@@ -8,13 +8,13 @@ const ContactPage = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        <section className="relative isolate overflow-hidden border-t border-slate-200/70 bg-[linear-gradient(180deg,#f8f9fc_0%,#eef4ff_45%,#f9fbff_100%)] py-16 dark:border-white/10 dark:bg-[#061226] md:py-24">
+        <section className="relative isolate overflow-hidden border-t border-slate-200/70 bg-gradient-to-b from-[#f8f9fc] via-[#eef4ff] to-[#f9fbff] py-16 dark:border-white/10 dark:bg-gradient-to-b dark:from-[#020517] dark:via-[#020d1f] dark:to-[#030617] md:py-24">
           <div className="absolute -left-24 top-12 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
           <div className="absolute -right-20 bottom-8 h-64 w-64 rounded-full bg-cyan-300/10 blur-3xl" />
           <div className="container">
-            <div className="mx-auto max-w-6xl">
-              <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-                <div className="rounded-3xl border border-slate-200/80 bg-white/90 p-7 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-[#0d1a35]/90 md:p-9">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="rounded-3xl border border-slate-200/80 bg-white/90 p-7 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-[#08102b]/90 md:p-9">
                   <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">
                     Contact Us
                   </p>
@@ -27,7 +27,7 @@ const ContactPage = () => {
                   </p>
 
                   <div className="mt-8 space-y-4">
-                    <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50/90 px-4 py-3 dark:border-white/10 dark:bg-[#122142]">
+                    <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50/90 px-4 py-3 dark:border-white/10 dark:bg-[#0f1d3f]">
                       <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                         <Mail className="h-5 w-5" />
                       </span>
@@ -41,7 +41,7 @@ const ContactPage = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50/90 px-4 py-3 dark:border-white/10 dark:bg-[#122142]">
+                    <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50/90 px-4 py-3 dark:border-white/10 dark:bg-[#0f1d3f]">
                       <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                         <Phone className="h-5 w-5" />
                       </span>
