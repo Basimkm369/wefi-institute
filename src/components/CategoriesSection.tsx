@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 type Milestone = {
@@ -162,15 +162,49 @@ const milestoneRows = chunkMilestones(milestones, 4);
 
 const CategoriesSection = () => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const indexRef = useRef(0);
 
-  const scrollCards = useCallback((direction: 'left' | 'right') => {
+  const updateIndexOnScroll = useCallback(() => {
     const container = scrollerRef.current;
-    if (!container) return;
+    const cards = cardRefs.current;
+    if (!container || cards.length === 0) return;
 
-    const distance = Math.min(container.clientWidth * 0.9, container.scrollWidth);
-    const offset = direction === 'left' ? -distance : distance;
-    container.scrollBy({ left: offset, behavior: 'smooth' });
+    const center = container.scrollLeft + container.clientWidth / 2;
+    let closestIndex = 0;
+    let minDistance = Infinity;
+    cards.forEach((card, idx) => {
+      if (!card) return;
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const distance = Math.abs(cardCenter - center);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = idx;
+      }
+    });
+    indexRef.current = closestIndex;
   }, []);
+
+  const scrollToCard = useCallback(
+    (direction: 'left' | 'right') => {
+      const cards = cardRefs.current;
+      if (cards.length === 0) return;
+
+      const maxIndex = cards.length - 1;
+      let nextIndex = indexRef.current;
+      nextIndex = direction === 'left' ? Math.max(0, nextIndex - 1) : Math.min(maxIndex, nextIndex + 1);
+      const targetCard = cards[nextIndex];
+      if (!targetCard) return;
+
+      targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      indexRef.current = nextIndex;
+    },
+    []
+  );
+
+  useEffect(() => {
+    updateIndexOnScroll();
+  }, [updateIndexOnScroll]);
 
   return (
     <section
@@ -191,57 +225,61 @@ const CategoriesSection = () => {
           </p>
         </div>
 
-        <div className="mt-12 md:hidden">
-          <div className="relative py-6">
-            <button
-              type="button"
-              onClick={() => scrollCards('left')}
-              aria-label="Scroll milestones left"
-              className="absolute left-[4%] top-1/2 z-10 -translate-y-1/2 rounded-full border border-primary/30 bg-white/90 p-2 text-primary shadow-lg transition hover:bg-white dark:border-white/10 dark:bg-[#0d1a35]/80 dark:hover:bg-[#162045]"
+      <div className="mt-12 md:hidden">
+        <div className="relative py-6">
+          <div className="overflow-hidden rounded-3xl border border-primary/10 bg-white/80 px-3 pb-2 pt-1 shadow-sm">
+            <div
+              className="relative flex items-stretch snap-x snap-proximity gap-0 overflow-x-auto pl-1 pr-5 pb-2 pt-1 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+              ref={scrollerRef}
+              onScroll={updateIndexOnScroll}
             >
-              <HiChevronLeft className="h-5 w-5" aria-hidden="true" />
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollCards('right')}
-              aria-label="Scroll milestones right"
-              className="absolute right-[4%] top-1/2 z-10 -translate-y-1/2 rounded-full border border-primary/30 bg-white/90 p-2 text-primary shadow-lg transition hover:bg-white dark:border-white/10 dark:bg-[#0d1a35]/80 dark:hover:bg-[#162045]"
-            >
-              <HiChevronRight className="h-5 w-5" aria-hidden="true" />
-            </button>
-            <div className="overflow-hidden px-3">
-              <div
-                className="relative flex items-stretch snap-x snap-proximity gap-0 overflow-x-auto pl-1 pr-5 pb-2 pt-1 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-                ref={scrollerRef}
-              >
-                {milestones.map((milestone) => (
-                  <div
-                    key={`${milestone.year}-${milestone.title}-mobile`}
-                    className="flex w-[78vw] max-w-[300px] shrink-0 snap-center flex-col"
-                  >
-                    <div className="relative flex flex-col items-center">
-                      <span className="inline-flex rounded-full bg-primary px-4 py-1 text-xs font-bold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)]">
-                        {milestone.year}
-                      </span>
-                      <div className="absolute -left-px -right-px top-[2.6rem] h-1 bg-primary/85" />
-                      <span className="relative mt-4 h-7 w-7 rounded-full border-4 border-white bg-primary shadow-[0_8px_18px_rgba(37,99,235,0.35)] dark:border-[#071634]" />
-                      <span className="mt-1 h-5 w-0 border-l-2 border-dashed border-primary/45" />
-                    </div>
-
-                    <article className="mx-1.5 mt-3 flex-1 rounded-2xl border border-primary/10 bg-white/90 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-[#0d1a35]/90">
-                      <h3 className="text-center text-sm font-semibold text-primary">
-                        {milestone.title}
-                      </h3>
-                      <p className="mt-2 px-2 text-center text-sm font-normal leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
-                        {milestone.description}
-                      </p>
-                    </article>
+              {milestones.map((milestone, index) => (
+                <div
+                  key={`${milestone.year}-${milestone.title}-mobile`}
+                  className="flex w-[78vw] max-w-[300px] shrink-0 snap-center flex-col"
+                  ref={(el) => {
+                    cardRefs.current[index] = el;
+                  }}
+                >
+                  <div className="relative flex flex-col items-center">
+                    <span className="inline-flex rounded-full bg-primary px-4 py-1 text-xs font-bold text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)]">
+                      {milestone.year}
+                    </span>
+                    <div className="absolute -left-px -right-px top-[2.6rem] h-1 bg-primary/85" />
+                    <span className="relative mt-4 h-7 w-7 rounded-full border-4 border-white bg-primary shadow-[0_8px_18px_rgba(37,99,235,0.35)] dark:border-[#071634]" />
+                    <span className="mt-1 h-5 w-0 border-l-2 border-dashed border-primary/45" />
                   </div>
-                ))}
-              </div>
+
+                  <article className="mx-1.5 mt-3 flex-1 rounded-2xl border border-primary/10 bg-white/90 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-[#0d1a35]/90">
+                    <h3 className="text-center text-sm font-semibold text-primary">
+                      {milestone.title}
+                    </h3>
+                    <p className="mt-2 px-2 text-center text-sm font-normal leading-relaxed text-slate-700 [text-wrap:balance] dark:text-slate-300">
+                      {milestone.description}
+                    </p>
+                  </article>
+                </div>
+              ))}
             </div>
           </div>
+          <button
+            type="button"
+            onClick={() => scrollToCard('left')}
+            aria-label="Scroll milestones left"
+            className="pointer-events-auto absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/30 bg-white/90 p-2 text-primary shadow-lg transition hover:bg-white dark:border-white/10 dark:bg-[#0d1a35]/80 dark:hover:bg-[#162045]"
+          >
+            <HiChevronLeft className="h-5 w-5" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollToCard('right')}
+            aria-label="Scroll milestones right"
+            className="pointer-events-auto absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/30 bg-white/90 p-2 text-primary shadow-lg transition hover:bg-white dark:border-white/10 dark:bg-[#0d1a35]/80 dark:hover:bg-[#162045]"
+          >
+            <HiChevronRight className="h-5 w-5" aria-hidden="true" />
+          </button>
         </div>
+      </div>
 
         <div className="mt-16 hidden md:block">
           <div className="mx-auto max-w-7xl space-y-10">
