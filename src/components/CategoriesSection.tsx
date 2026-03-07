@@ -226,7 +226,7 @@ const CategoriesSection = () => {
         </div>
 
       <div className="mt-12 md:hidden">
-        <div className="relative py-6">
+        <div className="relative py-6 min-h-[320px]">
           <div
             className="relative flex items-stretch snap-x snap-proximity gap-0 overflow-x-auto pl-3 pr-5 pb-2 pt-1 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             ref={scrollerRef}
@@ -264,7 +264,7 @@ const CategoriesSection = () => {
             type="button"
             onClick={() => scrollToCard('left')}
             aria-label="Scroll milestones left"
-            className="pointer-events-auto absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/30 bg-white/90 p-2 text-primary shadow-lg transition hover:bg-white dark:border-white/10 dark:bg-[#0d1a35]/80 dark:hover:bg-[#162045]"
+            className="pointer-events-auto absolute left-0 top-[55%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/30 bg-white/90 p-2 text-primary shadow-lg transition hover:bg-white dark:border-white/10 dark:bg-[#0d1a35]/80 dark:hover:bg-[#162045]"
           >
             <HiChevronLeft className="h-5 w-5" aria-hidden="true" />
           </button>
@@ -272,7 +272,7 @@ const CategoriesSection = () => {
             type="button"
             onClick={() => scrollToCard('right')}
             aria-label="Scroll milestones right"
-            className="pointer-events-auto absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/30 bg-white/90 p-2 text-primary shadow-lg transition hover:bg-white dark:border-white/10 dark:bg-[#0d1a35]/80 dark:hover:bg-[#162045]"
+            className="pointer-events-auto absolute right-0 top-[55%] translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/30 bg-white/90 p-2 text-primary shadow-lg transition hover:bg-white dark:border-white/10 dark:bg-[#0d1a35]/80 dark:hover:bg-[#162045]"
           >
             <HiChevronRight className="h-5 w-5" aria-hidden="true" />
           </button>
