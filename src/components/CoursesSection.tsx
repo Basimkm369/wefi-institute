@@ -50,7 +50,7 @@ const CoursesSection = () => {
   return (
     <section
       id="courses"
-      className="scroll-mt-[5rem] border-t border-slate-200/70 bg-white pt-12 pb-16 md:pt-16 md:pb-20 dark:border-white/10 dark:bg-[#061226]"
+      className="scroll-mt-[5rem] border-t border-slate-200/70 bg-white pt-12 pb-8 md:pt-16 md:pb-12 dark:border-white/10 dark:bg-[#061226]"
     >
       <div className="container">
         <div className="space-y-8">
@@ -94,7 +94,7 @@ const CoursesSection = () => {
             <button
               type="button"
               onClick={() => setDrawerOpen(true)}
-              className="lg:hidden rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/10 transition hover:bg-slate-900/80"
+              className="lg:hidden rounded-[20px] border border-slate-200/80 bg-white/90 px-4 py-2 text-sm font-semibold text-primary shadow-[0_10px_30px_rgba(15,23,42,0.25)] transition hover:bg-white"
             >
               Categories
             </button>
@@ -138,32 +138,34 @@ const CoursesSection = () => {
                 aria-hidden="true"
               />
               <div className="fixed inset-y-0 right-0 z-60 w-3/4 max-w-xs bg-white p-6 shadow-2xl border border-slate-200/70 rounded-l-[16px] dark:bg-slate-900 dark:border-slate-800">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Categories</h3>
-                  <button
-                    type="button"
-                    onClick={() => setDrawerOpen(false)}
-                    className="rounded-full p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-                  >
-                    ×
-                  </button>
-                </div>
-                <div className="mt-6 max-h-[60vh] overflow-y-auto pb-6">
-                  <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                    {categoryList.map(({ name, count, active }) => (
-                      <li
-                        key={`drawer-${name}`}
-                        className={`flex justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition ${
-                          active
-                            ? 'bg-slate-100 text-primary dark:bg-white/10 dark:text-white'
-                            : 'bg-transparent hover:bg-slate-100 dark:hover:bg-white/5'
-                        }`}
-                      >
-                        <span>{name}</span>
-                        <span className="text-xs font-semibold">{count}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="flex h-full flex-col">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Categories</h3>
+                    <button
+                      type="button"
+                      onClick={() => setDrawerOpen(false)}
+                      className="rounded-full p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <div className="mt-6 flex-1 overflow-y-auto pb-6">
+                    <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                      {categoryList.map(({ name, count, active }) => (
+                        <li
+                          key={`drawer-${name}`}
+                          className={`flex justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition ${
+                            active
+                              ? 'bg-slate-100 text-primary dark:bg-white/10 dark:text-white'
+                              : 'bg-transparent hover:bg-slate-100 dark:hover:bg-white/5'
+                          }`}
+                        >
+                          <span>{name}</span>
+                          <span className="text-xs font-semibold">{count}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
