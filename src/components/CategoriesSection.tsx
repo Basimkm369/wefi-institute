@@ -227,12 +227,11 @@ const CategoriesSection = () => {
 
       <div className="mt-12 md:hidden">
         <div className="relative py-6">
-          <div className="overflow-hidden rounded-3xl border border-primary/10 bg-white/80 px-3 pb-2 pt-1 shadow-sm">
-            <div
-              className="relative flex items-stretch snap-x snap-proximity gap-0 overflow-x-auto pl-1 pr-5 pb-2 pt-1 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-              ref={scrollerRef}
-              onScroll={updateIndexOnScroll}
-            >
+          <div
+            className="relative flex items-stretch snap-x snap-proximity gap-0 overflow-x-auto pl-3 pr-5 pb-2 pt-1 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            ref={scrollerRef}
+            onScroll={updateIndexOnScroll}
+          >
               {milestones.map((milestone, index) => (
                 <div
                   key={`${milestone.year}-${milestone.title}-mobile`}
@@ -261,7 +260,6 @@ const CategoriesSection = () => {
                 </div>
               ))}
             </div>
-          </div>
           <button
             type="button"
             onClick={() => scrollToCard('left')}
